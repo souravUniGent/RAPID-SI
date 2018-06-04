@@ -257,7 +257,7 @@ for ll=1:nreceivers./nreceivers
             sub_data_part(:,i)=conj(ifft(ifftshift((half_temp_real-half_real_recon1')+ 1i*(half_temp_imag-half_imag_recon1'))));
          end      
     elseif water_supress==2
-         model_order=20;
+         model_order=10;
          Fs= spectralwidth;
          fres=(-( spectralwidth)/2 + (( spectralwidth)/(length(scale_half)*1))*(0:((length(scale_half)*1-1))));
          [fit_sig,amp,Ind_sig,freq] = HSVDPK_new(scale_half',fres,Fs,model_order) ;
