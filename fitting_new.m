@@ -626,11 +626,11 @@ if details_para.fit_method==0
         data_value.fit_FD_Cr(:,i)=fftshift(fft(sum(Ind_sig(:,ind_Cr),2)));
         data_value.fit_FD_Cho(:,i)=fftshift(fft(sum(Ind_sig(:,ind_Cho),2)));
         data_value.fit_FD(:,i)=fftshift(fft(data_value.fit_TD(:,i)));
-        data_value.peak_area(:,i)=trapz(details_para.ppm,abs(data_value.fit_FD(:,i)));
-        data_value.peak_area_NAA(:,i)=trapz(details_para.ppm_referenced,abs(data_value.fit_FD_NAA(:,i)));
-        data_value.peak_area_Cr(:,i)=trapz(details_para.ppm_referenced,abs(data_value.fit_FD_Cr(:,i)));
-        data_value.peak_area_Cho(:,i)=trapz(details_para.ppm_referenced,abs(data_value.fit_FD_Cho(:,i)));
-        data_value.noise(:,i)=std(data_value.FID_FD(:,i)-fftshift(fft(fit_sig)));
+        data_value.peak_area(:,i)=trapz(details_para.ppm,abs(real(data_value.fit_FD(:,i))));
+        data_value.peak_area_NAA(:,i)=trapz(details_para.ppm_referenced,abs(real(data_value.fit_FD_NAA(:,i))));
+        data_value.peak_area_Cr(:,i)=trapz(details_para.ppm_referenced,abs(real(data_value.fit_FD_Cr(:,i))));
+        data_value.peak_area_Cho(:,i)=trapz(details_para.ppm_referenced,abs(real(data_value.fit_FD_Cho(:,i))));
+        data_value.noise(:,i)=std(data_value.FID_FD(end-50:end,i));%std(data_value.FID_FD(:,i)-fftshift(fft(fit_sig)));
         data_value.snr(:,i)=data_value.peak_area_NAA(:,i)./data_value.noise(:,i);
         data_value.NAA_Cr(:,i)=data_value.peak_area_NAA(:,i)./data_value.peak_area_Cr(:,i);
         data_value.fit_temp(:,i)=data_value.fit_TD(:,i);

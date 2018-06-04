@@ -293,23 +293,23 @@ set(preprocess_handles.met_fig,'Name','RAPID 1.0','NumberTitle', 'off');
 subplot(2,3,1)
 imagesc(NAA_map_csi);%./Cr_map_csi);
 title('NAA map');
-% colorbar
+colorbar
 subplot(2,3,2)
 imagesc(Lac_map_csi);%./Cr_map_csi);
 title('Lac map');
-% colorbar
+colorbar
 subplot(2,3,3)
 imagesc(Cho_map_csi);%./Cr_map_csi);
 title('Cho map');
-% colorbar
+colorbar
 subplot(2,3,4)
 imagesc(Cr_map_csi);%./Cr_map_csi);
 title('Cr map');
-% colorbar
+colorbar
 subplot(2,3,5)
 imagesc(MI_map_csi);%./Cr_map_csi);
 title('MI map');
-% colorbar
+colorbar
 waitfor(preprocess_handles.met_fig);
 set(mainGUI_handles.fig,'Visible','on');
 set(mainGUI_handles.slice_map, 'Enable', 'on');
