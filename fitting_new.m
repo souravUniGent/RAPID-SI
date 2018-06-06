@@ -66,7 +66,7 @@ if(isempty(apod_para)) % if pre-processing is not done previously load default p
     fit_para.pha_0 = default_parameters.pha_0*ones(details_para.num_vox,1);
     fit_para.pha_1 = default_parameters.pha_1*ones(details_para.num_vox,1);
     pha_cor_data =  data_value.FID_TD;
-    fit_para.order=10*ones(details_para.num_vox,1);
+    fit_para.order=7*ones(details_para.num_vox,1);
 else % if pre-processing is done use the current pre-processing parameters 
     % and perform pre-processing using those values 
     for i = 1:length(details_para.selected_voxels)
@@ -84,7 +84,7 @@ else % if pre-processing is done use the current pre-processing parameters
         fit_para.pha_1_Lac = default_parameters.pha_1_Lac*ones(details_para.num_vox,1);
         fit_para.pha_0_mi = default_parameters.pha_0_mi*ones(details_para.num_vox,1);
         fit_para.pha_1_mi = default_parameters.pha_1_mi*ones(details_para.num_vox,1);
-        fit_para.order=10*ones(details_para.num_vox,1);
+        fit_para.order=7*ones(details_para.num_vox,1);
     end
 end
 details_para.fit_freq_NAA(1) = ((fit_para.pha_0_NAA(cur_vox) - details_para.ref)*details_para.Tf)/1E6;% ppm to frequency

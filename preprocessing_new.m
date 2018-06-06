@@ -842,7 +842,7 @@ global pha_cor_data;
 
 h = waitbar(0,'Please wait...');
 for i = 1:details_para.num_vox
-    [ fit_sig,amp,Ind_sig,freq] = HSVDPK_new(data_value.FID_TD(:,i),details_para.fres,details_para.Fs,10);
+    [ fit_sig,amp,Ind_sig,freq] = HSVDPK_new(data_value.FID_TD(:,i),details_para.fres,details_para.Fs,7);
     ind=find((freq>=-80 & freq<=80));
     half_sig2=sum(Ind_sig(:,ind),2);
     data_value.FID_TD(:,i)=data_value.FID_TD(:,i)- half_sig2;
